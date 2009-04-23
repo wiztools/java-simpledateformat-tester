@@ -48,7 +48,8 @@ public class MyFrame extends JFrame{
         jb.setMnemonic('g');
         jb.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                SimpleDateFormat sdf = new SimpleDateFormat(jtf_in.getText());
+                SimpleDateFormat sdf = new SimpleDateFormat(jtf_in.getText(),
+                        (Locale)jcb_locale.getSelectedItem());
                 String out = sdf.format(new Date());
                 if("".equals(out.trim())){
                     out = NO_RESULT_TEXT;
