@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
@@ -48,13 +49,19 @@ public class MyFrame extends JFrame{
         jb.setMnemonic('g');
         jb.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                SimpleDateFormat sdf = new SimpleDateFormat(jtf_in.getText(),
-                        (Locale)jcb_locale.getSelectedItem());
-                String out = sdf.format(new Date());
-                if("".equals(out.trim())){
-                    out = NO_RESULT_TEXT;
+                try{
+                    SimpleDateFormat sdf = new SimpleDateFormat(jtf_in.getText(),
+                            (Locale)jcb_locale.getSelectedItem());
+                    String out = sdf.format(new Date());
+                    if("".equals(out.trim())){
+                        out = NO_RESULT_TEXT;
+                    }
+                    jl_out.setText(out);
                 }
-                jl_out.setText(out);
+                catch(IllegalArgumentException ex){
+                    JOptionPane.showMessageDialog(rootPane, ex.getMessage(),
+                            "Error parsing!", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         jp_north.add(jb);
