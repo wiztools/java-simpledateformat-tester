@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
 import javax.swing.JButton;
@@ -29,7 +30,25 @@ public class MyFrame extends JFrame{
 
     private JTextField jtf_in = new JTextField(30);
     private JLabel jl_out = new JLabel(NO_RESULT_TEXT);
-    private JComboBox jcb_locale = new JComboBox(Locale.getAvailableLocales());
+    
+    private final JComboBox jcb_locale;
+    {
+        // Locale does not implement Comparable :-(
+        // So Arrays.sort() does not work on it
+        Locale[] l = Locale.getAvailableLocales();
+        MyLocale[] myLocales = new MyLocale[l.length];
+        for(int i=0; i<l.length; i++) {
+            myLocales[i] = new MyLocale(l[i]);
+        }
+        Arrays.sort(myLocales);
+        
+        // This is what will be populated in Combo box:
+        Locale[] locales = new Locale[l.length];
+        for(int i=0; i<l.length; i++) {
+            locales[i] = myLocales[i].getLocale();
+        }
+        jcb_locale = new JComboBox(locales);
+    }
 
     private static final int FONT_SIZE = 26;
     
