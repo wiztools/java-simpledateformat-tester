@@ -26,9 +26,10 @@ import javax.swing.WindowConstants;
  */
 public class MyFrame extends JFrame{
 
+    private static final String DEFAULT_PATTERN = "EEE, dd MMM yyyy HH:mm:ss z";
     private static final String NO_RESULT_TEXT = "<no result>";
 
-    private JTextField jtf_in = new JTextField(30);
+    private JTextField jtf_in = new JTextField(DEFAULT_PATTERN, 30);
     private JLabel jl_out = new JLabel(NO_RESULT_TEXT);
     
     private final JComboBox jcb_locale;
