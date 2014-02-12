@@ -6,23 +6,23 @@
     <packaging>jar</packaging>
     <version>1.0.4-SNAPSHOT</version>
     <name>java-simpledateformat-tester</name>
-    <url>http://www.wiztools.org</url>
+    <url>https://github.com/wiztools/java-simpledateformat-tester</url>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
     <scm>
-        <connection>scm:svn:http://wiztools.googlecode.com/svn/java-simpledateformat-tester/trunk/</connection>
-        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/java-simpledateformat-tester/trunk/</developerConnection>
-        <url>http://code.google.com/p/wiztools/source/browse/</url>
+        <connection>scm:git:https://github.com/wiztools/java-simpledateformat-tester.git</connection>
+        <developerConnection>scm:git:https://github.com/wiztools/java-simpledateformat-tester.git</developerConnection>
+        <url>https://github.com/wiztools/java-simpledateformat-tester</url>
     </scm>
     
     <build>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.0.2</version>
+                <version>3.1</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
@@ -45,16 +45,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>2.4.3</version>
+                <version>2.6</version>
                 <configuration>
                     <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <configuration>
-                    <tagBase>https://wiztools.googlecode.com/svn/java-simpledateformat-tester/tags</tagBase>
                 </configuration>
             </plugin>
         </plugins>
