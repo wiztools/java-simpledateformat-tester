@@ -4,7 +4,7 @@
     <groupId>org.wiztools.testing</groupId>
     <artifactId>java-simpledateformat-tester</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.4</version>
+    <version>1.0.5-SNAPSHOT</version>
     <name>java-simpledateformat-tester</name>
     <url>https://github.com/wiztools/java-simpledateformat-tester</url>
     
